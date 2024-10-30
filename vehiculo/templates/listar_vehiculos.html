@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Listado de Vehículos</h1>
+    <ul>
+        {% for vehiculo in vehiculos %}
+            <li>{{ vehiculo.marca }} {{ vehiculo.linea }} - {{ vehiculo.placa }}</li>
+        {% empty %}
+            <li>No hay vehículos registrados.</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

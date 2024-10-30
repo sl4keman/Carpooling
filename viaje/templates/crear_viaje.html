@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Crear Viaje</h1>
+    <form method="post" action="{% url 'crear_viaje' %}">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3">
+                <label class="form-label">{{ field.label_tag }}</label>
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit">Crear Viaje</button>
+    </form>
+    <p>Nota: Si aún no has registrado tu vehículo, <a href="{% url 'registrar_vehiculo' %}">hazlo aquí</a>.</p>
+{% endblock content %}

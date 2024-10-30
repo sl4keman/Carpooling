@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Calificación</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="viaje_id" value="{{ viaje_id }}">
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+{% endblock content %}

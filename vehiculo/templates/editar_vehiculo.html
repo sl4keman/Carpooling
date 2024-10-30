@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block content %}
+    <h2>Editar Vehículo</h2>
+    <form method="GET" action="{% url 'editar_vehiculo' %}">
+        {% csrf_token %}
+        <label for="placa_vehiculo">Ingrese la placa del vehículo:</label>
+        <input type="text" id="placa_vehiculo" name="placa_vehiculo">
+        <button type="submit">Buscar Vehículo</button>
+    </form>
+    <br>
+    {% if form %}
+        <h3>Datos del Vehículo</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    {% endif %}
+
+    {% if error_message %}
+    <p style="color:red;">{{ error_message }}</p>
+  {% endif %}
+
+{% endblock content %}
+

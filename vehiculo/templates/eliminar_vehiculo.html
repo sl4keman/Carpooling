@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+  <h2>Eliminar Vehículo</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="placa_vehiculo">Placa del vehículo:</label>
+    <input type="text" id="placa_vehiculo" name="placa_vehiculo" required>
+    <button type="submit">Buscar y Eliminar</button>
+  </form>
+  {% if error_message %}
+    <p style="color:red;">{{ error_message }}</p>
+  {% endif %}
+{% endblock %}
+
+

@@ -1,0 +1,93 @@
+{% extends "index.html" %}
+{% block content %}
+
+<section class="h-100 h-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Informacion de Registro</h3>
+
+            <form method="post" class="px-md-2">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{ form.nombre.label_tag }}
+                    {{ form.nombre }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{ form.apellido.label_tag }}
+                    {{ form.apellido }}
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{ form.dni.label_tag }}
+                    {{ form.dni }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{ form.telefono.label_tag }}
+                    {{ form.telefono }}
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                {{ form.tipo.label_tag }}
+                {{ form.tipo }}
+              <div class="mt-4 pt-2">
+                <button type="submit" class="btn btn-primary btn-lg">Registrarse</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
+
+
+
+

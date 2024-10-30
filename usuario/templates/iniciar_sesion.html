@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+{% block content %}
+<section class="h-100 h-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-6">
+        <div class="card rounded-3">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Iniciar Sesión</h3>
+
+            <form method="post" class="px-md-2">
+              {% csrf_token %}
+              {% for field in form %}
+                <div class="mb-4">
+                  <div class="form-outline">
+                    {{ field.label_tag }}
+                    {{ field }}
+                  </div>
+                </div>
+              {% endfor %}
+              <div class="mt-4 pt-2">
+                <button type="submit" class="btn btn-primary btn-lg">Iniciar Sesión</button>
+              </div>
+            </form>
+
+            <br>
+            <p>¿No tienes una cuenta? <a href="{% url 'registro_usuario' %}">Regístrate</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
+

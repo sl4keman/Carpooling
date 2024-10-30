@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Registrar Vehículo</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="mb-3">
+                <label  class="form-label">{{ field.label_tag }}</label>
+                {{ field }}
+            </div>           
+            
+        {% endfor %}
+        {% comment %} {{ form.as_p }} {% endcomment %}
+        <button type="submit">Registrar Vehículo</button>
+    </form>
+{% endblock content %}
+

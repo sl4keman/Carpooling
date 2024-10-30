@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Lista de Viajes</h1>
+    <ul>
+        {% for viaje in viajes %}
+            <li>
+                <strong>Origen:</strong> {{ viaje.direccion_origen }}<br>
+                <strong>Destino:</strong> {{ viaje.direccion_destino }}<br>
+                <strong>Hora de Salida:</strong> {{ viaje.hora_salida }}<br>
+                <strong>Asientos Disponibles:</strong> {{ viaje.vehiculo.asientos_disponibles }}<br>
+                <strong>Vehículo:</strong> {{ viaje.vehiculo }}<br>
+                <form action="{% url 'buscar_viaje' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="viaje_id" value="{{ viaje.id }}">
+                    <button type="submit">Reservar</button>
+                </form>
+                <form action="{% url 'hacer_calificacion' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="viaje_id" value="{{ viaje.id }}">
+                    <button type="submit">Calificar</button>
+                </form>
+            </li>
+        {% empty %}
+            <li>No se encontraron viajes.</li>
+        {% endfor %}
+    </ul>
+    {% if messages %}
+        {% for message in messages %}
+            <div>{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endblock content %}
